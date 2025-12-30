@@ -4,69 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CGI Electricals | Bandaragama</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; color: #333; }
-        header { background: #002366; color: white; padding: 20px; text-align: center; border-bottom: 5px solid #FFD700; }
-        .logo-text { font-size: 2.5em; font-weight: bold; color: #FFD700; text-shadow: 2px 2px #cc0000; }
-        nav { background: #f4f4f4; padding: 10px; text-align: center; position: sticky; top: 0; }
-        nav a { margin: 0 15px; text-decoration: none; color: #002366; font-weight: bold; }
-        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); 
-                height: 400px; background-size: cover; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        .services { padding: 50px 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-        .service-card { border: 1px solid #ddd; padding: 20px; width: 250px; border-radius: 10px; text-align: center; transition: 0.3s; }
-        .service-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: #FFD700; }
-        .service-card h3 { color: #cc0000; }
-        .freesat-banner { background: #FFD700; padding: 30px; text-align: center; font-weight: bold; font-size: 1.2em; color: #002366; }
-        footer { background: #222; color: white; padding: 40px 20px; text-align: center; }
-        .contact-btn { background: #cc0000; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 1.1em; cursor: pointer; text-decoration: none; }
+        :root { --main-blue: #002366; --gold: #FFD700; --red: #cc0000; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; line-height: 1.6; }
+        header { background: var(--main-blue); color: white; padding: 25px; text-align: center; border-bottom: 6px solid var(--gold); }
+        .logo-text { font-size: 2.8em; font-weight: bold; color: var(--gold); text-shadow: 2px 2px var(--red); margin: 0; }
+        nav { background: #eee; padding: 12px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { margin: 0 15px; text-decoration: none; color: var(--main-blue); font-weight: bold; }
+        .hero { background: linear-gradient(rgba(0,35,102,0.8), rgba(0,35,102,0.8)), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop'); 
+                height: 450px; background-size: cover; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+        .hero h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .btn-call { background: var(--red); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-size: 1.2em; font-weight: bold; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .btn-call:hover { background: #aa0000; transform: scale(1.05); }
+        .section-title { text-align: center; padding-top: 40px; color: var(--main-blue); font-size: 2em; }
+        .services { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; padding: 40px 20px; }
+        .card { background: white; border: 1px solid #ddd; border-radius: 12px; padding: 25px; width: 300px; text-align: center; transition: 0.3s; border-bottom: 4px solid var(--gold); }
+        .card i { font-size: 3em; color: var(--main-blue); margin-bottom: 15px; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 12px 25px rgba(0,0,0,0.1); }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+        footer { background: #111; color: #ccc; padding: 50px 20px; text-align: center; }
+        .footer-info { color: white; font-size: 1.1em; margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-text">CGI ELECTRICALS</div>
-    <p>අංක 53, කළුතර පාර, බණ්ඩාරගම</p>
+    <h1 class="logo-text">CGI ELECTRICALS</h1>
+    <p><i class="fas fa-map-marker-alt"></i> අංක 53, කළුතර පාර, බණ්ඩාරගම</p>
 </header>
 
 <nav>
     <a href="#">මුල් පිටුව</a>
     <a href="#services">සේවාවන්</a>
-    <a href="#about">අප ගැන</a>
     <a href="#contact">සම්බන්ධ වීමට</a>
 </nav>
 
 <section class="hero">
     <h1>විශ්වාසනීය විදුලි සහ සන්නිවේදන සේවා</h1>
     <p>බණ්ඩාරගම අවට ඕනෑම විදුලි වැඩක් සහ සැටලයිට් ඇන්ටනා සවිකිරීම සඳහා අප අමතන්න.</p>
-    <a href="tel:0706920007" class="contact-btn">දැන්ම අමතන්න: 070 6920007</a>
+    <br>
+    <a href="tel:0706920007" class="btn-call"><i class="fas fa-phone-alt"></i> දැන්ම අමතන්න: 070 6920007</a>
 </section>
 
-<div class="freesat-banner">
-    📡 මාසික ගාස්තු නැති FreeSat HD දැන් අපෙන්! <br>
-    <small>අදම ඔබේ නිවසටත් සවි කරගන්න.</small>
-</div>
-
-<section id="services" class="services">
-    <div class="service-card">
-        <h3>⚡ Electrical Wiring</h3>
-        <p>නිවාස සහ ගොඩනැගිලි වයරින් කිරීම සහ අලුත්වැඩියාව.</p>
+<h2 class="section-title" id="services">අපගේ ප්‍රධාන සේවාවන්</h2>
+<section class="services">
+    <div class="card">
+        <i class="fas fa-bolt"></i>
+        <h3>Electrical Wiring</h3>
+        <p>නිවාස සහ ගොඩනැගිලි වයරින් කිරීම, නඩත්තුව සහ සියලුම විදුලි අලුත්වැඩියාවන්.</p>
     </div>
-    <div class="service-card">
-        <h3>📡 FreeSat HD</h3>
-        <p>මාසික ගාස්තු රහිතව නාලිකා නැරඹිය හැකි FreeSat පද්ධති සවිකිරීම.</p>
+    <div class="card">
+        <i class="fas fa-satellite"></i>
+        <h3>FreeSat HD</h3>
+        <p>කිසිදු මාසික ගාස්තුවකින් තොරව නාලිකා නැරඹිය හැකි FreeSat පද්ධති සවිකිරීම.</p>
     </div>
-    <div class="service-card">
-        <h3>🛰️ Satellite Dish</h3>
-        <p>Dialog TV, Dish TV ඇතුළු ඕනෑම සැටලයිට් පද්ධතියක් සවි කිරීම සහ නඩත්තුව.</p>
+    <div class="card">
+        <i class="fas fa-satellite-dish"></i>
+        <h3>Satellite TV</h3>
+        <p>Dialog TV, Dish TV ඇතුළු ඕනෑම සැටලයිට් පද්ධතියක් සවි කිරීම සහ සිග්නල් දෝෂ නිවැරදි කිරීම.</p>
     </div>
 </section>
 
 <footer id="contact">
-    <h3>CGI ELECTRICALS - BANDARAGAMA</h3>
-    <p>දුරකථන: 070 6920007 | 077 6920007 | 038 2256426</p>
-    <p>Email: c.wijayantha@gmail.com</p>
+    <div class="footer-info">CGI ELECTRICALS - BANDARAGAMA</div>
+    <p>දුරකථන: 070 6920007 / 077 6920007 / 038 2256426</p>
+    <p>ඊමේල්: c.wijayantha@gmail.com</p>
+    <hr style="width: 50%; opacity: 0.2; margin: 20px auto;">
     <p>&copy; 2024 CGI Electricals. All Rights Reserved.</p>
 </footer>
+
+<a href="https://wa.me/94706920007" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 </body>
 </html>
