@@ -10,28 +10,40 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--light); color: #333; }
         
+        /* Header */
         header { background: var(--main-blue); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--gold); }
         .logo-text { font-size: 3.5em; font-weight: bold; color: var(--gold); text-shadow: 2px 2px var(--red); margin: 0; }
+        
+        /* Navigation */
         nav { background: white; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        nav a { margin: 0 20px; text-decoration: none; color: var(--main-blue); font-weight: bold; cursor: pointer; font-size: 1.1em; }
+        nav a { margin: 0 15px; text-decoration: none; color: var(--main-blue); font-weight: bold; cursor: pointer; font-size: 1.1em; transition: 0.3s; }
+        nav a:hover { color: var(--red); }
 
+        /* Hero Section */
+        .hero { background: linear-gradient(rgba(0,35,102,0.7), rgba(0,35,102,0.7)), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop'); 
+                height: 400px; background-size: cover; background-position: center; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .btn-call { background: var(--red); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2em; margin-top: 20px; transition: 0.3s; box-shadow: 0 5px 15px rgba(204,0,0,0.4); }
+
+        /* Services Grid */
         .services-section { padding: 60px 20px; text-align: center; }
         .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
-        .card { background: white; padding: 40px 25px; width: 280px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; border-bottom: 5px solid var(--gold); transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); }
-        .card i { font-size: 3.5em; color: var(--main-blue); margin-bottom: 20px; }
+        .card { background: white; padding: 40px 25px; width: 280px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; border-bottom: 5px solid var(--gold); transition: 0.4s; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .card i { font-size: 4em; color: var(--main-blue); margin-bottom: 20px; }
 
-        /* Modal Settings */
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(8:px); overflow-y: auto; }
-        .modal-content { background-color: white; margin: 2% auto; padding: 30px; border-radius: 20px; width: 90%; max-width: 800px; position: relative; }
-        .close { position: absolute; right: 20px; top: 10px; font-size: 35px; cursor: pointer; }
+        /* Modal (Pop-up) Styling */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); overflow-y: auto; }
+        .modal-content { background-color: white; margin: 5% auto; padding: 35px; border-radius: 25px; width: 90%; max-width: 800px; position: relative; animation: slideIn 0.3s; }
+        .close { position: absolute; right: 25px; top: 15px; font-size: 35px; cursor: pointer; color: #666; }
+        @keyframes slideIn { from {opacity: 0; transform: translateY(-30px);} to {opacity: 1; transform: translateY(0);} }
 
-        /* FreeSat Channel List Styling */
-        .channel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; margin-top: 20px; }
-        .channel-item { background: #eee; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.9em; color: var(--main-blue); }
-        .feature-list { text-align: left; background: #fffde7; padding: 20px; border-radius: 10px; border-left: 5px solid var(--gold); margin-bottom: 20px; }
-        
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50px; text-align: center; font-size: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 1000; }
+        /* Channel Logo Grid */
+        .channel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 15px; margin-top: 20px; background: #f9f9f9; padding: 20px; border-radius: 15px; }
+        .channel-item { text-align: center; font-size: 0.85em; font-weight: bold; }
+        .channel-item img { width: 65px; height: 65px; object-fit: contain; display: block; margin: 0 auto 5px; background: white; padding: 5px; border-radius: 10px; border: 1px solid #ddd; }
+
+        /* WhatsApp */
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50px; text-align: center; font-size: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 1000; box-shadow: 0 8px 20px rgba(37,211,102,0.3); }
     </style>
 </head>
 <body>
@@ -48,7 +60,13 @@
     <a href="tel:0706920007">සම්බන්ධ වීමට</a>
 </nav>
 
+<section class="hero">
+    <h1>විශ්වාසනීය විදුලි සහ සන්නිවේදන සේවා</h1>
+    <a href="tel:0706920007" class="btn-call"><i class="fas fa-phone-alt"></i> 070 6920007</a>
+</section>
+
 <section class="services-section">
+    <h2 style="font-size: 2.5em; color: var(--main-blue); margin-bottom: 40px;">අපගේ සේවාවන්</h2>
     <div class="services-grid">
         <div class="card" onclick="openModal('wiringModal')">
             <i class="fas fa-bolt"></i>
@@ -59,54 +77,59 @@
         <div class="card" onclick="openModal('freesatModal')">
             <i class="fas fa-satellite"></i>
             <h3>FreeSat HD</h3>
-            <p>මාසික ගාස්තු නැති චැනල් ලැයිස්තුව බලන්න.</p>
+            <p>නාලිකා ලැයිස්තුව බලන්න ක්ලික් කරන්න.</p>
         </div>
 
         <div class="card" onclick="openModal('satModal')">
             <i class="fas fa-satellite-dish"></i>
             <h3>Satellite TV</h3>
-            <p>Dialog TV & Dish TV සේවා.</p>
+            <p>Dialog TV සහ Dish TV සේවා.</p>
         </div>
     </div>
 </section>
 
+<div id="aboutModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('aboutModal')">×</span>
+        <h2 style="color:var(--main-blue); text-align:center;">අප ගැන (About Us)</h2>
+        <div style="background: var(--light); padding: 25px; border-radius: 15px; border-left: 8px solid var(--main-blue); font-size: 1.1em; line-height: 1.8;">
+            CGI Electricals වන අප වසර ගණනාවක පළපුරුද්ද සහිත බණ්ඩාරගම ප්‍රදේශයේ පිහිටි විශ්වාසනීය ආයතනයකි. 
+            අපගේ මූලික අරමුණ වන්නේ පාරිභෝගිකයාට උසස් තත්ත්වයේ සහ ආරක්ෂිත විදුලි සේවාවන් සැපයීමයි.
+        </div>
+    </div>
+</div>
+
 <div id="freesatModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('freesatModal')">×</span>
-        <h2 style="color:var(--main-blue);"><i class="fas fa-satellite"></i> FreeSat HD ශ්‍රී ලංකා</h2>
-        
-        <div class="feature-list">
-            <strong>ඇයි FreeSat HD තෝරාගත යුත්තේ?</strong>
-            <ul style="margin-top:10px;">
-                <li>මාසික ගාස්තු (Monthly Rentals) කිසිවක් නොමැත.</li>
-                <li>එක් වරක් පමණක් ගෙවා ජීවිත කාලයටම නාලිකා නැරඹිය හැක.</li>
-                <li>Full HD පැහැදිලි රූප සහ ශබ්ද ගුණය.</li>
-                <li>වැසි දිනවලටත් බාධාවකින් තොරව ක්‍රියා කරයි.</li>
-            </ul>
-        </div>
-
-        <h3 style="color:var(--red);">ලබාගත හැකි ප්‍රධාන නාලිකා (Channels):</h3>
+        <h2 style="color:var(--main-blue); text-align:center;">FreeSat HD Channel List</h2>
+        <p style="text-align:center;">මාසික ගාස්තු නොමැති පැහැදිලි HD නාලිකා.</p>
         <div class="channel-grid">
-            <div class="channel-item">Rupavahini</div>
-            <div class="channel-item">ITN</div>
-            <div class="channel-item">Sirasa TV</div>
-            <div class="channel-item">Derana</div>
-            <div class="channel-item">Swarnavahini</div>
-            <div class="channel-item">Hiru TV</div>
-            <div class="channel-item">TV1</div>
-            <div class="channel-item">Siyatha TV</div>
-            <div class="channel-item">Shakthi TV</div>
-            <div class="channel-item">Vasantham TV</div>
-            <div class="channel-item">Ada Derana 24</div>
-            <div class="channel-item">Prime TV</div>
-            <div class="channel-item">Channel Eye</div>
-            <div class="channel-item">Poya TV</div>
-            <div class="channel-item">Shraddha</div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/3/3d/Sri_Lanka_Rupavahini_Corporation_logo.png">Rupavahini</div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/ITN_Sri_Lanka_Logo.png">ITN</div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Ada_Derana_Logo.png/220px-Ada_Derana_Logo.png">Derana</div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Sirasa_TV_logo.png">Sirasa</div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/5/52/Hiru_TV_Logo.png">Hiru TV</div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/b/b5/Swarnavahini_logo.png">Swarnavahini</div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/8/82/Siyatha_TV_logo.png">Siyatha</div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Sirasatvlogo.png">Shakti</div>
         </div>
-        
-        <p style="margin-top:20px; font-weight:bold; color:var(--main-blue);">දැන්ම ඇණවුම් කරන්න: 070 6920007</p>
     </div>
 </div>
+
+<div id="mapModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('mapModal')">×</span>
+        <h2 style="color:var(--main-blue); text-align:center;">අපගේ පිහිටීම</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15848.274291845455!2d79.9800762!3d6.7125307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2499d343467c5%3A0xc68e4c703554e66c!2sBandaragama!5e0!3m2!1sen!2slk!4v1700000000000" width="100%" height="400" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</div>
+
+<footer style="background: #111; color: #888; padding: 40px; text-align: center;">
+    <p>© 2024 CGI Electricals. All Rights Reserved.</p>
+</footer>
+
+<a href="https://wa.me/94706920007?text=Hello%20CGI%20Electricals,%20මට%20ඔයාලගේ%20සේවාවන්%20ගැන%20දැනගන්න%20ඕනේ." class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <script>
     function openModal(id) { document.getElementById(id).style.display = "block"; }
