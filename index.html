@@ -9,29 +9,27 @@
         :root { --main-blue: #002366; --gold: #FFD700; --red: #cc0000; --light: #f8f9fa; }
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--light); color: #333; }
         
-        /* Header & Nav */
         header { background: var(--main-blue); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--gold); }
         .logo-text { font-size: 3.5em; font-weight: bold; color: var(--gold); text-shadow: 2px 2px var(--red); margin: 0; }
+        
         nav { background: white; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         nav a { margin: 0 15px; text-decoration: none; color: var(--main-blue); font-weight: bold; cursor: pointer; transition: 0.3s; }
         nav a:hover { color: var(--red); }
 
-        /* Services Grid */
         .services-section { padding: 60px 20px; text-align: center; }
         .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
         .card { background: white; padding: 40px 25px; width: 280px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; border-bottom: 5px solid var(--gold); transition: 0.4s; }
         .card:hover { transform: translateY(-10px); }
         .card i { font-size: 3.5em; color: var(--main-blue); margin-bottom: 20px; }
 
-        /* Modal Settings */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); overflow-y: auto; }
         .modal-content { background-color: white; margin: 5% auto; padding: 30px; border-radius: 25px; width: 90%; max-width: 800px; position: relative; }
         .close { position: absolute; right: 25px; top: 15px; font-size: 35px; cursor: pointer; }
 
-        /* Channel Logos */
+        /* Channel Logos Styling */
         .channel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 15px; margin-top: 20px; background: #f0f2f5; padding: 20px; border-radius: 15px; }
         .channel-item { background: white; padding: 10px; border-radius: 12px; border: 1px solid #ddd; text-align: center; font-size: 0.85em; font-weight: bold; }
-        .channel-item img { width: 80px; height: 50px; object-fit: contain; margin-bottom: 5px; display: block; margin-left: auto; margin-right: auto; }
+        .channel-item img { width: 70px; height: 70px; object-fit: contain; margin-bottom: 5px; display: block; margin-left: auto; margin-right: auto; }
 
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50px; text-align: center; font-size: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 1000; box-shadow: 0 8px 20px rgba(37,211,102,0.3); }
     </style>
@@ -55,7 +53,7 @@
         <div class="card" onclick="openModal('wiringModal')">
             <i class="fas fa-bolt"></i>
             <h3>Electrical Wiring</h3>
-            <p>වැඩි විස්තර සඳහා ක්ලික් කරන්න.</p>
+            <p>නිවාස සහ ව්‍යාපාරික ස්ථාන වයරින් කිරීම.</p>
         </div>
 
         <div class="card" onclick="openModal('freesatModal')">
@@ -76,7 +74,7 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal('aboutModal')">×</span>
         <h2 style="color:var(--main-blue); text-align:center;">අප ගැන (About Us)</h2>
-        <p style="background:var(--light); padding:20px; border-radius:15px; border-left: 5px solid var(--main-blue);">
+        <p style="padding:20px; background:#f9f9f9; border-radius:15px; border-left: 8px solid var(--main-blue); font-size: 1.1em;">
             CGI Electricals වන අප වසර ගණනාවක පළපුරුද්ද සහිත බණ්ඩාරගම ප්‍රදේශයේ පිහිටි විශ්වාසනීය ආයතනයකි.
         </p>
     </div>
@@ -86,7 +84,7 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal('mapModal')">×</span>
         <h2 style="color:var(--main-blue); text-align:center;">අපගේ පිහිටීම</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.61066555198!2d79.9868!3d6.6953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNDEnNDMuMSJOIDc5wrA1OScxMi41IkU!5e0!3m2!1sen!2slk!4v1625123456789!5m2!1sen!2slk" width="100%" height="400" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.2479633830495!2d79.9880!3d6.7458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24f56!2sBandaragama!5e0!3m2!1sen!2slk!4v1700000000000" width="100%" height="400" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 </div>
 
@@ -95,33 +93,20 @@
         <span class="close" onclick="closeModal('freesatModal')">×</span>
         <h2 style="color:var(--main-blue); text-align:center;">FreeSat HD Channel List</h2>
         <div class="channel-grid">
-            <div class="channel-item"><img src="https://www.rupavahini.lk/images/logo.png">Rupavahini</div>
-            <div class="channel-item"><img src="https://www.itn.lk/wp-content/uploads/2019/04/itn-logo.png">ITN</div>
-            <div class="channel-item"><img src="https://www.derana.lk/derana_logo.png">Derana</div>
-            <div class="channel-item"><img src="https://www.hirutv.lk/images/logo_white.png" style="background: #333; padding: 2px;">Hiru TV</div>
-            <div class="channel-item"><img src="https://www.swarnavahini.lk/images/logo.png">Swarnavahini</div>
-            <div class="channel-item"><img src="https://www.siyathatv.lk/wp-content/uploads/2017/08/siyatha-tv-logo.png">Siyatha TV</div>
-            <div class="channel-item"><img src="https://www.shaktitv.lk/images/logo.png">Shakti TV</div>
-            <div class="channel-item"><img src="https://www.sirasa.tv/images/logo.png">Sirasa TV</div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/3/3d/Sri_Lanka_Rupavahini_Corporation_logo.png" onerror="this.src='https://via.placeholder.com/70x50?text=Rupavahini'">Rupavahini</div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/ITN_Sri_Lanka_Logo.png" onerror="this.src='https://via.placeholder.com/70x50?text=ITN'">ITN</div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Ada_Derana_Logo.png/200px-Ada_Derana_Logo.png" onerror="this.src='https://via.placeholder.com/70x50?text=Derana'">Derana</div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Sirasa_TV_logo.png" onerror="this.src='https://via.placeholder.com/70x50?text=Sirasa'">Sirasa</div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/5/52/Hiru_TV_Logo.png" onerror="this.src='https://via.placeholder.com/70x50?text=Hiru'">Hiru TV</div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/b/b5/Swarnavahini_logo.png" onerror="this.src='https://via.placeholder.com/70x50?text=Swarna'">Swarnavahini</div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/8/82/Siyatha_TV_logo.png" onerror="this.src='https://via.placeholder.com/70x50?text=Siyatha'">Siyatha</div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/c/c2/Shakti_TV_logo.png" onerror="this.src='https://via.placeholder.com/70x50?text=Shakti'">Shakti TV</div>
         </div>
     </div>
 </div>
 
-<div id="wiringModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('wiringModal')">×</span>
-        <h2 style="color:var(--main-blue)">Electrical Wiring</h2>
-        <p>නිවාස සහ ව්‍යාපාරික ස්ථාන වයරින් කිරීම සහ නඩත්තුව.</p>
-    </div>
-</div>
-
-<div id="satModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('satModal')">×</span>
-        <h2 style="color:var(--main-blue)">Satellite TV</h2>
-        <p>Dialog TV සහ Dish TV ඇන්ටනා සවි කිරීම සහ දෝෂ නිවැරදි කිරීම.</p>
-    </div>
-</div>
+<div id="wiringModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('wiringModal')">×</span><h2>Electrical Wiring</h2><p>සියලුම විදුලි පද්ධති පරීක්ෂාව සහ වයරින් කිරීම.</p></div></div>
+<div id="satModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('satModal')">×</span><h2>Satellite TV</h2><p>Dish TV සහ Dialog TV අලුත්වැඩියාව.</p></div></div>
 
 <a href="https://wa.me/94706920007" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
