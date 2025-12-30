@@ -6,40 +6,48 @@
     <title>CGI Electricals | Bandaragama</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --main-blue: #002366; --gold: #FFD700; --red: #cc0000; --light: #f4f7f6; }
+        :root { --main-blue: #002366; --gold: #FFD700; --red: #cc0000; --light: #f8f9fa; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--light); }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--light); color: #333; }
         
-        /* Header & Nav */
-        header { background: var(--main-blue); color: white; padding: 30px; text-align: center; border-bottom: 5px solid var(--gold); }
-        .logo-text { font-size: 3em; font-weight: bold; color: var(--gold); text-shadow: 2px 2px var(--red); margin: 0; }
-        nav { background: white; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        nav a { margin: 0 15px; text-decoration: none; color: var(--main-blue); font-weight: bold; cursor: pointer; }
+        /* Header */
+        header { background: var(--main-blue); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--gold); }
+        .logo-text { font-size: 3.5em; font-weight: bold; color: var(--gold); text-shadow: 2px 2px var(--red); margin: 0; }
+        
+        /* Nav */
+        nav { background: white; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        nav a { margin: 0 20px; text-decoration: none; color: var(--main-blue); font-weight: bold; cursor: pointer; font-size: 1.1em; transition: 0.3s; }
+        nav a:hover { color: var(--red); }
 
-        /* Hero */
+        /* Hero Section */
         .hero { background: linear-gradient(rgba(0,35,102,0.7), rgba(0,35,102,0.7)), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop'); 
-                height: 450px; background-size: cover; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        .btn-call { background: var(--red); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 20px; }
+                height: 400px; background-size: cover; background-position: center; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .btn-call { background: var(--red); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2em; margin-top: 20px; transition: 0.3s; box-shadow: 0 5px 15px rgba(204,0,0,0.4); }
 
-        /* Pop-up (Modal) Style */
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); overflow: auto; }
-        .modal-content { background-color: white; margin: 10% auto; padding: 30px; border-radius: 15px; width: 80%; max-width: 700px; position: relative; animation: fadeIn 0.4s; }
-        .close { position: absolute; right: 20px; top: 10px; font-size: 30px; cursor: pointer; color: #333; }
-        @keyframes fadeIn { from {opacity: 0; transform: translateY(-20px);} to {opacity: 1; transform: translateY(0);} }
+        /* Services Section */
+        .services-section { padding: 80px 20px; text-align: center; }
+        .section-title { font-size: 2.5em; color: var(--main-blue); margin-bottom: 40px; position: relative; padding-bottom: 10px; }
+        .section-title::after { content: ''; width: 60px; height: 4px; background: var(--gold); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+        .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+        .card { background: white; padding: 40px 25px; width: 280px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; border-bottom: 5px solid var(--gold); }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .card i { font-size: 4em; color: var(--main-blue); margin-bottom: 20px; }
 
-        /* Services */
-        .services { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 50px 20px; }
-        .card { background: white; padding: 30px; width: 250px; text-align: center; border-radius: 10px; border-bottom: 4px solid var(--gold); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        
+        /* Modal (Pop-up) */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,35,102,0.9); backdrop-filter: blur(5px); }
+        .modal-content { background-color: white; margin: 5% auto; padding: 40px; border-radius: 25px; width: 85%; max-width: 800px; position: relative; animation: slideIn 0.4s; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .close { position: absolute; right: 25px; top: 15px; font-size: 35px; cursor: pointer; color: #666; }
+        @keyframes slideIn { from {opacity: 0; transform: translateY(-50px);} to {opacity: 1; transform: translateY(0);} }
+
         /* WhatsApp */
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50px; text-align: center; font-size: 30px; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 1000; }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50px; text-align: center; font-size: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 1000; box-shadow: 0 8px 20px rgba(37,211,102,0.3); }
     </style>
 </head>
 <body>
 
 <header>
     <div class="logo-text">CGI ELECTRICALS</div>
-    <p><i class="fas fa-map-marker-alt"></i> No. 53, Kaluthara Road, Bandaragama</p>
+    <p style="font-size: 1.2em; margin-top: 10px;"><i class="fas fa-map-marker-alt"></i> No. 53, Kaluthara Road, Bandaragama</p>
 </header>
 
 <nav>
@@ -51,33 +59,53 @@
 
 <section class="hero">
     <h1>විශ්වාසනීය විදුලි සහ සන්නිවේදන සේවා</h1>
-    <a href="tel:0706920007" class="btn-call">අමතන්න: 070 6920007</a>
+    <a href="tel:0706920007" class="btn-call"><i class="fas fa-phone-alt"></i> 070 6920007</a>
 </section>
 
-<section class="services">
-    <div class="card"><i class="fas fa-bolt fa-3x" style="color:var(--main-blue)"></i><h3>Electrical Wiring</h3><p>නිවාස සහ ගොඩනැගිලි වයරින් කිරීම.</p></div>
-    <div class="card"><i class="fas fa-satellite fa-3x" style="color:var(--main-blue)"></i><h3>FreeSat HD</h3><p>මාසික ගාස්තු නැති TV පද්ධති.</p></div>
+<section class="services-section">
+    <h2 class="section-title">අපගේ සේවාවන්</h2>
+    <div class="services-grid">
+        <div class="card">
+            <i class="fas fa-bolt"></i>
+            <h3>Electrical Wiring</h3>
+            <p>නිවාස සහ ව්‍යාපාරික ස්ථාන වයරින් කිරීම සහ නඩත්තුව.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-satellite"></i>
+            <h3>FreeSat HD</h3>
+            <p>කිසිදු මාසික ගාස්තුවකින් තොරව නාලිකා නැරඹිය හැකි FreeSat පද්ධති.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-satellite-dish"></i>
+            <h3>Satellite TV</h3>
+            <p>Dialog TV සහ Dish TV ඇන්ටනා සවි කිරීම සහ දෝෂ නිවැරදි කිරීම.</p>
+        </div>
+    </div>
 </section>
 
 <div id="aboutModal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeModal('aboutModal')">&times;</span>
-        <h2 style="color:var(--main-blue); border-bottom: 2px solid var(--gold); padding-bottom: 10px;">අප ගැන (About Us)</h2>
-        <p style="text-align: justify; font-size: 1.1em; line-height: 1.8;">
+        <span class="close" onclick="closeModal('aboutModal')">×</span>
+        <h2 style="color:var(--main-blue); text-align:center; font-size: 2.5em; margin-bottom: 20px;">අප ගැන (About Us)</h2>
+        <div style="background: var(--light); padding: 30px; border-radius: 15px; border-left: 8px solid var(--main-blue); font-size: 1.2em; line-height: 1.8; text-align: justify;">
             CGI Electricals වන අප වසර ගණනාවක පළපුරුද්ද සහිත බණ්ඩාරගම ප්‍රදේශයේ පිහිටි විශ්වාසනීය ආයතනයකි. 
             අපගේ මූලික අරමුණ වන්නේ පාරිභෝගිකයාට උසස් තත්ත්වයේ සහ ආරක්ෂිත විදුලි සේවාවන් සැපයීමයි. 
             නිවාස වයරින් කිරීමේ සිට නවීන සැටලයිට් ඇන්ටනා සවිකිරීම දක්වා වූ සියලුම සේවාවන් වගකීමක් සහිතව අප විසින් සිදු කරනු ලබයි.
-        </p>
+        </div>
     </div>
 </div>
 
 <div id="mapModal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeModal('mapModal')">&times;</span>
-        <h2 style="color:var(--main-blue); border-bottom: 2px solid var(--gold); padding-bottom: 10px;">අපගේ පිහිටීම (Location)</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.247413665798!2d79.988!3d6.72!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae245f778395535%3A0x6b8676d1e3895392!2sBandaragama!5e0!3m2!1sen!2slk!4v1700000000000" width="100%" height="350" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
+        <span class="close" onclick="closeModal('mapModal')">×</span>
+        <h2 style="color:var(--main-blue); text-align:center; font-size: 2em; margin-bottom: 20px;">අපගේ පිහිටීම</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.6457335756!2d79.9876543!3d6.7234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24f0000000000%3A0x0000000000000000!2sBandaragama!5e0!3m2!1sen!2slk!4v1700000000000" width="100%" height="400" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 </div>
+
+<footer style="background: #111; color: #888; padding: 40px; text-align: center;">
+    <p>© 2024 CGI Electricals. All Rights Reserved.</p>
+</footer>
 
 <a href="https://wa.me/94706920007" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
