@@ -7,21 +7,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --main-blue: #002366; --gold: #FFD700; --red: #cc0000; --light: #f8f9fa; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--light); color: #333; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--light); }
         header { background: var(--main-blue); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--gold); }
         .logo-text { font-size: 3.5em; font-weight: bold; color: var(--gold); text-shadow: 2px 2px var(--red); margin: 0; }
         nav { background: white; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        nav a { margin: 0 15px; text-decoration: none; color: var(--main-blue); font-weight: bold; cursor: pointer; font-size: 1.1em; }
-        .hero { background: linear-gradient(rgba(0,35,102,0.7), rgba(0,35,102,0.7)), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop'); height: 350px; background-size: cover; background-position: center; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        nav a { margin: 0 15px; text-decoration: none; color: var(--main-blue); font-weight: bold; cursor: pointer; }
         .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 60px 20px; }
-        .card { background: white; padding: 40px 25px; width: 280px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; border-bottom: 5px solid var(--gold); text-align: center; transition: 0.3s; }
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); overflow-y: auto; }
-        .modal-content { background-color: white; margin: 5% auto; padding: 35px; border-radius: 25px; width: 90%; max-width: 750px; position: relative; }
-        .close { position: absolute; right: 25px; top: 15px; font-size: 35px; cursor: pointer; }
-        .channel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 15px; margin-top: 20px; background: #f9f9f9; padding: 20px; border-radius: 15px; }
-        .channel-item { text-align: center; font-size: 0.85em; font-weight: bold; }
-        .channel-item img { width: 70px; height: 70px; object-fit: contain; display: block; margin: 0 auto 5px; background: white; padding: 5px; border-radius: 12px; border: 1px solid #ddd; }
+        .card { background: white; padding: 40px 25px; width: 280px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; text-align: center; border-bottom: 5px solid var(--gold); }
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); backdrop-filter: blur(5px); overflow-y: auto; }
+        .modal-content { background-color: white; margin: 5% auto; padding: 30px; border-radius: 25px; width: 90%; max-width: 750px; position: relative; text-align: center; }
+        .close { position: absolute; right: 20px; top: 10px; font-size: 35px; cursor: pointer; }
+        
+        /* Logos Style */
+        .channel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 15px; margin-top: 20px; background: #eee; padding: 20px; border-radius: 15px; }
+        .channel-item { background: white; padding: 10px; border-radius: 12px; border: 1px solid #ddd; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100px; }
+        .channel-item img { width: 60px; height: 60px; object-fit: contain; margin-bottom: 5px; }
+        .channel-item span { font-size: 0.8em; font-weight: bold; color: #333; }
+        
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50px; text-align: center; font-size: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 1000; }
     </style>
 </head>
@@ -29,46 +31,42 @@
 
 <header>
     <div class="logo-text">CGI ELECTRICALS</div>
-    <p><i class="fas fa-map-marker-alt"></i> No. 53, Kaluthara Road, Bandaragama</p>
+    <p>Bandaragama | No. 53, Kaluthara Road</p>
 </header>
 
 <nav>
     <a onclick="window.scrollTo(0,0)">මුල් පිටුව</a>
     <a onclick="openModal('aboutModal')">අප ගැන</a>
-    <a onclick="openModal('mapModal')">පිහිටීම</a>
-    <a href="tel:0706920007">සම්බන්ධ වීමට</a>
+    <a onclick="openModal('freesatModal')">FreeSat චැනල්</a>
+    <a href="tel:0706920007">Call Us</a>
 </nav>
 
-<section class="hero">
-    <h1>විශ්වාසනීය විදුලි සහ සන්නිවේදන සේවා</h1>
-</section>
-
-<section class="services-grid">
-    <div class="card" onclick="openModal('wiringModal')"><i class="fas fa-bolt fa-3x" style="color:var(--main-blue)"></i><h3>Electrical Wiring</h3><p>වැඩි විස්තර සඳහා ක්ලික් කරන්න.</p></div>
-    <div class="card" onclick="openModal('freesatModal')"><i class="fas fa-satellite fa-3x" style="color:var(--main-blue)"></i><h3>FreeSat HD</h3><p>නාලිකා ලැයිස්තුව බලන්න ක්ලික් කරන්න.</p></div>
-    <div class="card" onclick="openModal('satModal')"><i class="fas fa-satellite-dish fa-3x" style="color:var(--main-blue)"></i><h3>Satellite TV</h3><p>Dialog TV සහ Dish TV සේවා.</p></div>
-</section>
+<div class="services-grid">
+    <div class="card" onclick="openModal('freesatModal')">
+        <i class="fas fa-satellite fa-3x" style="color:var(--main-blue)"></i>
+        <h3>FreeSat HD Channels</h3>
+        <p>නාලිකා ලැයිස්තුව බලන්න ක්ලික් කරන්න.</p>
+    </div>
+</div>
 
 <div id="freesatModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('freesatModal')">×</span>
-        <h2 style="color:var(--main-blue); text-align:center;">FreeSat HD Channel List</h2>
-        <p style="text-align:center;">මාසික ගාස්තු නොමැති පැහැදිලි HD නාලිකා.</p>
+        <h2 style="color:var(--main-blue)">FreeSat HD Channel List</h2>
         <div class="channel-grid">
-            <div class="channel-item"><img src="https://i.ibb.co/Lzf7vXz/rupavahini.png" onerror="this.src='https://via.placeholder.com/70?text=Rupavahini'">Rupavahini</div>
-            <div class="channel-item"><img src="https://i.ibb.co/vYm68Z3/itn.png" onerror="this.src='https://via.placeholder.com/70?text=ITN'">ITN</div>
-            <div class="channel-item"><img src="https://i.ibb.co/0fM0C0f/derana.png" onerror="this.src='https://via.placeholder.com/70?text=Derana'">Derana</div>
-            <div class="channel-item"><img src="https://i.ibb.co/K2tK8rB/sirasa.png" onerror="this.src='https://via.placeholder.com/70?text=Sirasa'">Sirasa</div>
-            <div class="channel-item"><img src="https://i.ibb.co/hR0W4hM/hiru.png" onerror="this.src='https://via.placeholder.com/70?text=Hiru'">Hiru TV</div>
-            <div class="channel-item"><img src="https://i.ibb.co/VgxY6C9/swarnavahini.png" onerror="this.src='https://via.placeholder.com/70?text=Swarnavahini'">Swarnavahini</div>
-            <div class="channel-item"><img src="https://i.ibb.co/YyYhQYm/siyatha.png" onerror="this.src='https://via.placeholder.com/70?text=Siyatha'">Siyatha</div>
-            <div class="channel-item"><img src="https://i.ibb.co/S3GzQ3Z/shakti.png" onerror="this.src='https://via.placeholder.com/70?text=Shakti'">Shakti</div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/3/3d/Sri_Lanka_Rupavahini_Corporation_logo.png"><span>Rupavahini</span></div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/ITN_Sri_Lanka_Logo.png"><span>ITN</span></div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Ada_Derana_Logo.png/200px-Ada_Derana_Logo.png"><span>Derana</span></div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Sirasa_TV_logo.png"><span>Sirasa</span></div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/5/52/Hiru_TV_Logo.png"><span>Hiru TV</span></div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/b/b5/Swarnavahini_logo.png"><span>Swarna</span></div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/8/82/Siyatha_TV_logo.png"><span>Siyatha</span></div>
+            <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/en/c/c2/Shakti_TV_logo.png"><span>Shakti</span></div>
         </div>
     </div>
 </div>
 
-<div id="aboutModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('aboutModal')">×</span><h2 style="color:var(--main-blue)">අප ගැන</h2><p>CGI Electricals වන අප බණ්ඩාරගම ප්‍රදේශයේ පිහිටි විශ්වාසනීය ආයතනයකි.</p></div></div>
-<div id="mapModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('mapModal')">×</span><h2 style="color:var(--main-blue)">අපගේ පිහිටීම</h2><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.668700!2d79.988!3d6.716" width="100%" height="400" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe></div></div>
+<div id="aboutModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('aboutModal')">×</span><h2>අප ගැන</h2><p>බණ්ඩාරගම CGI Electricals වන අප විශ්වාසනීය සේවාවක් සපයන්නෙමු.</p></div></div>
 
 <a href="https://wa.me/94706920007" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
@@ -77,5 +75,6 @@
     function closeModal(id) { document.getElementById(id).style.display = "none"; }
     window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
 </script>
+
 </body>
 </html>
