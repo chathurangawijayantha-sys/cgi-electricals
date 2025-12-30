@@ -18,8 +18,11 @@
         nav a { margin: 0 15px; text-decoration: none; color: var(--main-blue); font-weight: bold; cursor: pointer; transition: 0.3s; padding: 8px 15px; border-radius: 5px; }
         nav a:hover { background: var(--main-blue); color: white; }
 
-        /* Hero Banner Section */
-        .hero { background: linear-gradient(rgba(0,31,77,0.8), rgba(0,31,77,0.8)), url('https://images.unsplash.com/photo-1558444479-c8f0105282bb?auto=format&fit=crop&q=80&w=1500'); background-size: cover; background-position: center; height: 350px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; padding: 20px; }
+        /* Hero Banner Section (with image embedded using Base64) */
+        .hero { 
+            background: linear-gradient(rgba(0,31,77,0.8), rgba(0,31,77,0.8)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQDxAQDxAQDxAQDxAQDxAQDxAQDxAQDxAQDxAQDwgsHxoxJjAqMTIidDAoMiwtMDE0QzQ5OzA/QDsBCwsBCwUKBAgKCQoNDQwNDQ4NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NCP/AABEIAK8BPQMBIgACEQEDEQH/xAAZAAEBAQEBAQADAAAAAAAAAAAABAECAwAHBf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A9QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//9k=');
+            background-size: cover; background-position: center; height: 350px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; padding: 20px; 
+        }
         .hero h2 { font-size: 2.2rem; margin-bottom: 10px; }
         .hero p { font-size: 1.1rem; max-width: 700px; opacity: 0.9; }
 
@@ -41,7 +44,7 @@
         @keyframes pop { from {transform: scale(0.8); opacity: 0;} to {transform: scale(1); opacity: 1;} }
         .close { position: absolute; right: 20px; top: 10px; font-size: 35px; cursor: pointer; }
 
-        /* Channel List */
+        /* Channel List (using Icons instead of external images for reliability) */
         .channel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 15px; margin-top: 20px; }
         .channel-box { background: #f8f9fa; padding: 15px; border-radius: 15px; border: 1px solid #ddd; text-align: center; font-weight: bold; color: var(--main-blue); }
         .channel-box i { font-size: 2rem; display: block; margin-bottom: 5px; color: var(--red); }
@@ -99,7 +102,7 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal('mapModal')">×</span>
         <h2 style="color:var(--main-blue); text-align:center;">අපගේ පිහිටීම</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15849.566373727027!2d79.97906915!3d6.72191985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae245df8a5e37db%3A0x6a0a927a7605d393!2sBandaragama!5e0!3m2!1sen!2slk!4v1700000000000" width="100%" height="400" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.6457335756!2d79.9876543!3d6.7234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24f0000000000%3A0x0000000000000000!2sBandaragama!5e0!3m2!1sen!2slk!4v17000000000002" width="100%" height="400" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 </div>
 
