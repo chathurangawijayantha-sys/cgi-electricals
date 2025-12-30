@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGI Electricals | Bandaragama</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; color: #333; }
+        header { background: #002366; color: white; padding: 20px; text-align: center; border-bottom: 5px solid #FFD700; }
+        .logo-text { font-size: 2.5em; font-weight: bold; color: #FFD700; text-shadow: 2px 2px #cc0000; }
+        nav { background: #f4f4f4; padding: 10px; text-align: center; position: sticky; top: 0; }
+        nav a { margin: 0 15px; text-decoration: none; color: #002366; font-weight: bold; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); 
+                height: 400px; background-size: cover; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .services { padding: 50px 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .service-card { border: 1px solid #ddd; padding: 20px; width: 250px; border-radius: 10px; text-align: center; transition: 0.3s; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: #FFD700; }
+        .service-card h3 { color: #cc0000; }
+        .freesat-banner { background: #FFD700; padding: 30px; text-align: center; font-weight: bold; font-size: 1.2em; color: #002366; }
+        footer { background: #222; color: white; padding: 40px 20px; text-align: center; }
+        .contact-btn { background: #cc0000; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 1.1em; cursor: pointer; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-text">CGI ELECTRICALS</div>
+    <p>අංක 53, කළුතර පාර, බණ්ඩාරගම</p>
+</header>
+
+<nav>
+    <a href="#">මුල් පිටුව</a>
+    <a href="#services">සේවාවන්</a>
+    <a href="#about">අප ගැන</a>
+    <a href="#contact">සම්බන්ධ වීමට</a>
+</nav>
+
+<section class="hero">
+    <h1>විශ්වාසනීය විදුලි සහ සන්නිවේදන සේවා</h1>
+    <p>බණ්ඩාරගම අවට ඕනෑම විදුලි වැඩක් සහ සැටලයිට් ඇන්ටනා සවිකිරීම සඳහා අප අමතන්න.</p>
+    <a href="tel:0706920007" class="contact-btn">දැන්ම අමතන්න: 070 6920007</a>
+</section>
+
+<div class="freesat-banner">
+    📡 මාසික ගාස්තු නැති FreeSat HD දැන් අපෙන්! <br>
+    <small>අදම ඔබේ නිවසටත් සවි කරගන්න.</small>
+</div>
+
+<section id="services" class="services">
+    <div class="service-card">
+        <h3>⚡ Electrical Wiring</h3>
+        <p>නිවාස සහ ගොඩනැගිලි වයරින් කිරීම සහ අලුත්වැඩියාව.</p>
+    </div>
+    <div class="service-card">
+        <h3>📡 FreeSat HD</h3>
+        <p>මාසික ගාස්තු රහිතව නාලිකා නැරඹිය හැකි FreeSat පද්ධති සවිකිරීම.</p>
+    </div>
+    <div class="service-card">
+        <h3>🛰️ Satellite Dish</h3>
+        <p>Dialog TV, Dish TV ඇතුළු ඕනෑම සැටලයිට් පද්ධතියක් සවි කිරීම සහ නඩත්තුව.</p>
+    </div>
+</section>
+
+<footer id="contact">
+    <h3>CGI ELECTRICALS - BANDARAGAMA</h3>
+    <p>දුරකථන: 070 6920007 | 077 6920007 | 038 2256426</p>
+    <p>Email: c.wijayantha@gmail.com</p>
+    <p>&copy; 2024 CGI Electricals. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
